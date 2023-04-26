@@ -1,10 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./HeaderFooter.module.css";
+import signature from "../assets/unreadable-letters-signaturely.svg";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <img className={styles.logo} src="" alt="Jacob's Signature"></img>
+      <Image src={signature} alt="Jacob's Signature" />
 
       <nav className={styles.nav}>
         <ul className={styles.footerLinks}>

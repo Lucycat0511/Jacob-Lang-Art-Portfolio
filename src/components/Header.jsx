@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./HeaderFooter.module.css";
+import signature from "../assets/unreadable-letters-signaturely.svg";
 
 export default function Header() {
   return (
@@ -11,7 +13,7 @@ export default function Header() {
           <Link href="#">About</Link>
         </ul>
       </nav>
-      <img className={styles.logo} src="" alt="Jacob's Signature"></img>
+      <Image src={signature} alt="Jacob's Signature" />
       <div className={styles.socialMedia}>
         <ul>
           <Link href="#">Instagram</Link>

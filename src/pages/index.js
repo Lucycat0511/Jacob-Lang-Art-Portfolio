@@ -14,10 +14,13 @@ export default function Home() {
       </Head>
       <Header />
       <main>
-        <section id="hero"></section>
-        <section id="artwork-display"></section>
-        <section id="commissions"></section>
-        <section id="about"></section>
+        <section id="hero" className="accent">
+          hero
+        </section>
+        <section id="artwork-display">artwork</section>
+        <section id="commissions" className="accent">
+          commissions
+        </section>
       </main>
       <Footer />
     </>

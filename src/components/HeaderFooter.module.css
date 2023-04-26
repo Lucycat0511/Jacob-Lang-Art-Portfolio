@@ -1,9 +1,15 @@
 /* Navbar */
 .navbar {
   display: flex;
+  align-items: center;
   gap: 2rem;
-  padding: 2rem 2rem;
-  border-bottom: 0.5 solid black;
+  padding: 0 2rem;
+  border-bottom: 1px solid black;
+}
+
+.navbar img {
+  max-width: 15%;
+  height: auto;
 }
 
 .nav {
@@ -20,6 +26,7 @@
   gap: 2rem;
   padding: 2rem 2rem;
   display: flex;
+  align-items: center;
 }
 
 .footer a {
