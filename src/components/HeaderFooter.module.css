@@ -1,0 +1,46 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 2rem;
+  border-bottom: 0.5 solid black;
+}
+
+.nav {
+  margin-right: auto;
+}
+
+.socialMedia {
+  margin-left: auto;
+}
+
+/* Footer */
+
+.footer {
+  gap: 2rem;
+  padding: 2rem 2rem;
+  display: flex;
+}
+
+.footer a {
+  border: 0;
+}
+
+.footer img {
+  flex: 2;
+}
+
+.footer .nav {
+  flex: 1;
+  margin-right: 0;
+}
+
+.footerLinks {
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer .socialMedia {
+  flex: 1;
+  margin-left: 0;
+}
