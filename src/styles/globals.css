@@ -1,11 +1,4 @@
-@keyframes loadIn {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
 
 * {
   padding: 0;
@@ -17,6 +10,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   animation: 1s ease-out 0s 1 loadIn;
+  font-family: "Roboto Slab", serif;
 }
 
 img {
@@ -29,10 +23,12 @@ h1 {
 
 a {
   color: inherit;
+  font-weight: bold;
   text-decoration: none;
-  border-left: 0.5px solid black;
-  border-right: 0.5px solid black;
-  padding: 0 1rem;
+}
+
+a:hover {
+  color: lightcoral;
 }
 
 ul {

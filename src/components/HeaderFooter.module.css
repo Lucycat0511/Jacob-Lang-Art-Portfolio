@@ -1,3 +1,21 @@
+/* Header */
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+#header a {
+  border-left: 0.5px solid black;
+  border-right: 0.5px solid black;
+  padding: 0 1rem;
+}
+
+#header h1 {
+  font-size: 3rem;
+}
+
 /* Navbar */
 .navbar {
   display: flex;

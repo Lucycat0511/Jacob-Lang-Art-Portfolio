@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArtworkSection from "@/components/ArtworkSection";
 import CommissionSection from "@/components/CommissionSection";
-import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
   return (
@@ -17,8 +17,8 @@ export default function Home() {
       </Head>
       <Header />
       <main>
-        <HeroSection />
         <ArtworkSection />
+        <AboutSection />
         <CommissionSection />
       </main>
       <Footer />

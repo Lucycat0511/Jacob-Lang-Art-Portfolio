@@ -10,34 +10,16 @@
   }
 }
 
-#hero div {
+#aboutSection {
   display: flex;
   justify-content: center;
 }
 
-#hero {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-#hero h1 {
+#aboutSection h1 {
   margin-top: 2rem;
 }
 
-.heroTitle {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: auto;
-}
-
-.artworkOne,
-.artworkTwo,
-.artworkThree,
-.heroTitle img {
+#aboutSection img {
   --size: 15rem;
   max-width: var(--size);
   max-height: var(--size);
@@ -45,72 +27,118 @@
   position: relative;
 }
 
-.heroTitle img {
-  --size: 10rem;
-  max-width: var(--size);
-  max-height: var(--size);
+.aboutTitle {
+  margin: 0 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.aboutTitle img {
+  --titlesize: 2rem;
+  max-width: var(--titlesize);
+  max-height: var(--titlesize);
   border-radius: 50rem;
 }
 
-.artworkOne {
+.aboutTitle ul {
+  flex-direction: column;
+  align-self: flex-start;
+}
+.aboutTitle h4 {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.aboutArtworkOne {
   margin-right: auto;
   margin-top: 8rem;
   left: 10rem;
   animation: 1.08s ease-out 0s 1 heroImagesSlideUp;
 }
 
-.artworkTwo {
+.aboutArtworkTwo {
   margin-left: auto;
   margin-top: 14rem;
   right: 10rem;
   animation: 1.2s ease-out 0s 1 heroImagesSlideUp;
 }
 
-.artworkThree {
-  position: absolute;
-  align-self: center;
-  top: 30rem;
-  animation: 1.35s ease-out 0s 1 heroImagesSlideUp;
-}
-
 /* Artwork Section */
 #artworkSection {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .artwork {
-  margin: 8rem 10rem;
+  margin: 4rem 10rem 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 8rem;
+}
+
+#artworkSection h2 {
+  font-size: 2rem;
 }
 
 .artwork img {
-  --size: 15rem;
-  max-width: 30rem;
+  --size: 25rem;
+  max-width: var(--size);
   max-height: var(--size);
+  aspect-ratio: 1/1;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .artworkContainer {
   display: flex;
-  flex-direction: column;
-  margin-right: 50%;
-  padding-right: 1rem;
+  align-items: center;
+  gap: 2rem;
 }
 
 .artworkContainer:nth-of-type(even) {
   display: flex;
-  flex-direction: column;
-  margin-left: 50%;
-  margin-right: 0;
-  padding-left: 1rem;
-  padding-right: 0;
+  flex-direction: row-reverse;
+}
+
+.hiddenArtworkContainer {
+  opacity: 0;
+}
+
+.showArtworkTwoContainer {
+  animation: slideInFromLeft 1s ease-out 0s 1;
+}
+.showArtworkThreeContainer {
+  animation: slideInFromRight 1s ease-out 0s 1;
 }
 
 .info {
-  margin-top: 0.5rem;
-  padding-right: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0 4rem;
 }
 
 #artworkSection button {
@@ -132,14 +160,14 @@
   flex-direction: column;
 }
 
-#commissionSection form input {
+#commissionSection form input,
+#commissionSection form textarea,
+#commissionSection form select {
   margin: 0.5rem 0 1rem;
   padding: 0.25rem;
 }
 
 #commissionSection form textarea {
-  margin: 0.5rem 0 1rem;
-  padding: 0.25rem;
   width: 40rem;
   height: 12rem;
 }
