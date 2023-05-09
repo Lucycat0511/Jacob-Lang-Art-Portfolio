@@ -1,11 +1,20 @@
-/* Hero Section */
-@keyframes heroImagesSlideUp {
+/* About Section */
+@keyframes imagesSlideUp {
   0% {
     transform: translateY(50%);
     opacity: 0;
   }
   100% {
     transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
@@ -52,18 +61,26 @@
   align-self: flex-start;
 }
 
+.showItemSlideUp {
+  animation: ease-out 0s 1 imagesSlideUp;
+}
+
+.showInfo {
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
 .aboutArtworkOne {
   margin-right: auto;
   margin-top: 8rem;
   left: 10rem;
-  animation: 1.08s ease-out 0s 1 heroImagesSlideUp;
+  animation-duration: 1s;
 }
 
 .aboutArtworkTwo {
   margin-left: auto;
   margin-top: 14rem;
   right: 10rem;
-  animation: 1.2s ease-out 0s 1 heroImagesSlideUp;
+  animation-duration: 1.2s;
 }
 
 /* Artwork Section */
@@ -86,8 +103,8 @@
 
 .artwork img {
   --size: 25rem;
-  max-width: var(--size);
-  max-height: var(--size);
+  width: var(--size);
+  height: var(--size);
   aspect-ratio: 1/1;
 }
 
@@ -128,10 +145,10 @@
 }
 
 .showArtworkTwoContainer {
-  animation: slideInFromLeft 1s ease-out 0s 1;
+  animation: slideInFromLeft 700ms ease-out 0s 1;
 }
 .showArtworkThreeContainer {
-  animation: slideInFromRight 1s ease-out 0s 1;
+  animation: slideInFromRight 700ms ease-out 0s 1;
 }
 
 .info {
@@ -152,27 +169,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#commissionSection form {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-#commissionSection form input,
-#commissionSection form textarea,
-#commissionSection form select {
-  margin: 0.5rem 0 1rem;
-  padding: 0.25rem;
-}
-
-#commissionSection form textarea {
-  width: 40rem;
-  height: 12rem;
-}
-
-#commissionSection button {
-  width: 50%;
-  align-self: center;
 }

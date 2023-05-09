@@ -22,7 +22,6 @@ export default function Home() {
         <CommissionSection />
       </main>
       <Footer />
-      <p className="copyright">Copyright © 2023 Zachary Maynor</p>
     </>
   );
 }

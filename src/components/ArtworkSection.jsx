@@ -5,19 +5,21 @@ import mock from "../assets/mock-image.jpg";
 
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function ArtworkSection() {
   const { ref: galleryTwoRef, inView: twoInView } = useInView();
   const { ref: galleryThreeRef, inView: threeInView } = useInView();
 
-  let twoViewed = useRef(false);
-  let threeViewed = useRef(false);
+  let [twoViewed, setTwoViewed] = useState(false);
+  let [threeViewed, setThreeViewed] = useState(false);
+
   useEffect(() => {
     if (twoInView) {
-      twoViewed.current = true;
-    } else if (threeInView) {
-      threeViewed.current = true;
+      setTwoViewed(true);
+    }
+    if (threeInView) {
+      setThreeViewed(true);
     }
   }, [twoInView, threeInView]);
 
@@ -26,7 +28,12 @@ export default function ArtworkSection() {
       <h2>Galleries</h2>
       <div className={styles.artwork}>
         <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
+          <Image
+            src="/assets/animal-portraits/IMG_4776.jpg"
+            height={500}
+            width={500}
+            alt="image"
+          />
           <div className={styles.info}>
             <h3>Animal Portraits</h3>
             <p>
@@ -35,13 +42,13 @@ export default function ArtworkSection() {
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <Link href="#">See More</Link>
+            <Link href="/galleries/AnimalPortraits">See More</Link>
           </div>
         </div>
         <div
           ref={galleryTwoRef}
           className={`${styles.artworkContainer} ${
-            twoViewed.current
+            twoViewed
               ? styles.showArtworkTwoContainer
               : styles.hiddenArtworkContainer
           }`}
@@ -55,13 +62,13 @@ export default function ArtworkSection() {
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <Link href="#">See More</Link>
+            <Link href="/galleries/Filmography">See More</Link>
           </div>
         </div>
         <div
           ref={galleryThreeRef}
           className={`${styles.artworkContainer} ${
-            threeViewed.current
+            threeViewed
               ? styles.showArtworkThreeContainer
               : styles.hiddenArtworkContainer
           }`}
@@ -79,6 +86,7 @@ export default function ArtworkSection() {
           </div>
         </div>
       </div>
+      <button>More</button>
     </section>
   );
 }
