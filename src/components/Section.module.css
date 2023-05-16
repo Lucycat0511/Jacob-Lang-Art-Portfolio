@@ -90,13 +90,17 @@
   align-items: center;
 }
 .artwork {
-  margin: 4rem 10rem 6rem;
+  margin: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8rem;
 }
-
+@media (min-width: 1024px) {
+  .artwork {
+    margin: 3rem 6rem;
+  }
+}
 #artworkSection h2 {
   font-size: 2rem;
 }
@@ -106,27 +110,6 @@
   width: var(--size);
   height: var(--size);
   aspect-ratio: 1/1;
-}
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 
 .artworkContainer {
@@ -144,11 +127,8 @@
   opacity: 0;
 }
 
-.showArtworkTwoContainer {
-  animation: slideInFromLeft 700ms ease-out 0s 1;
-}
-.showArtworkThreeContainer {
-  animation: slideInFromRight 700ms ease-out 0s 1;
+.showArtworkContainer {
+  animation: imagesSlideUp 1s ease-out 0s 1;
 }
 
 .info {
@@ -163,6 +143,17 @@
   align-self: center;
 }
 
+.otherGalleries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.otherGalleries ul {
+  gap: 2rem;
+}
+
 /* Commissions */
 
 #commissionSection {
@@ -170,3 +161,69 @@
   flex-direction: column;
   align-items: center;
 }
+#commissionSection form {
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .aboutArtworkOne,
+  .aboutArtworkTwo,
+  .showItemSlideUp {
+    animation: none;
+    opacity: 0;
+  }
+
+  .artwork {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+  }
+  .artworkContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .artworkContainer:nth-of-type(even) {
+    display: flex;
+    flex-direction: column;
+  }
+  .artwork img {
+    width: clamp(200px, 100%, 500px);
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;
+  }
+  .info h3,
+  .info a {
+    align-self: center;
+  }
+  #commissionSection form {
+    width: 100%;
+  }
+}
+
+/* // X-Small devices (portrait phones, less than 576px)
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { ... } */

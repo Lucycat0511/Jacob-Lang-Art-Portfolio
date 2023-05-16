@@ -5,7 +5,9 @@ import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 
 export default function AboutSection() {
-  const { ref: sectionRef, inView: sectionInView } = useInView();
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+  });
 
   return (
     <section ref={sectionRef} id={styles.aboutSection}>
@@ -31,12 +33,6 @@ export default function AboutSection() {
           incididunt ut labore et dolore magna aliqua.
         </p>
         <Link href="/About">Read More</Link>
-        <h4>Awards</h4>
-        <ul>
-          <li>Lorem Ipsum</li>
-          <li>Lorem Ipsum</li>
-          <li>Lorem Ipsum</li>
-        </ul>
       </div>
 
       <Image

@@ -1,4 +1,4 @@
-import { ContactForm } from "@/components/CommissionSection";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 

@@ -6,7 +6,7 @@
   gap: 1rem;
   padding: 2rem;
 }
-#header a {
+.navbar a {
   border-left: 0.5px solid black;
   border-right: 0.5px solid black;
   padding: 0 1rem;
@@ -28,6 +28,9 @@
   color: lightcoral;
 }
 
+.galleries {
+  gap: 2rem;
+}
 /* Navbar */
 .navbar {
   display: flex;
@@ -58,6 +61,12 @@
   align-items: center;
 }
 
+.footer .links {
+  display: flex;
+  flex: 1;
+  gap: 2rem;
+}
+
 .footer a {
   border: 0;
 }
@@ -66,7 +75,7 @@
   flex: 2;
 }
 
-.footer .nav {
+.nav {
   flex: 1;
   margin-right: 0;
 }
@@ -74,9 +83,76 @@
 .footerLinks {
   flex-direction: column;
   gap: 2rem;
-}
-
-.footer .socialMedia {
   flex: 1;
   margin-left: 0;
+}
+
+/* Sidebar */
+@keyframes sideBarAnimation {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.navSideBar {
+  display: none;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  font-size: x-large;
+  animation: ease-out 300ms 1 sideBarAnimation;
+}
+.navSideBar div:nth-child(odd) {
+  flex: 2.5;
+  background-color: grey;
+  display: flex;
+}
+.navSideBar ul {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.navSideBar a {
+  border: 0;
+  padding: 0 1rem;
+}
+.navSideBar div {
+  flex: 1;
+}
+.clickableSpan {
+  margin-left: auto;
+}
+.sideBarGalleries {
+  padding: 0.5rem 1rem;
+  font-size: large;
+}
+.navMobileView {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .galleries {
+    display: none;
+  }
+  .navMobileView {
+    display: block;
+  }
+  .navSideBar {
+    display: flex;
+  }
+  .navbar {
+    display: none;
+  }
+
+  #header {
+    flex-direction: row;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
 }

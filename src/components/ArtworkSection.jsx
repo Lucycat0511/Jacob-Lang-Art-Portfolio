@@ -8,20 +8,14 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 
 export default function ArtworkSection() {
-  const { ref: galleryTwoRef, inView: twoInView } = useInView();
-  const { ref: galleryThreeRef, inView: threeInView } = useInView();
-
-  let [twoViewed, setTwoViewed] = useState(false);
-  let [threeViewed, setThreeViewed] = useState(false);
-
-  useEffect(() => {
-    if (twoInView) {
-      setTwoViewed(true);
-    }
-    if (threeInView) {
-      setThreeViewed(true);
-    }
-  }, [twoInView, threeInView]);
+  const { ref: galleryTwoRef, inView: twoInView } = useInView({
+    threshold: 0.35,
+    triggerOnce: true,
+  });
+  const { ref: galleryThreeRef, inView: threeInView } = useInView({
+    threshold: 0.35,
+    triggerOnce: true,
+  });
 
   return (
     <section id={styles.artworkSection} className="accent">
@@ -48,8 +42,8 @@ export default function ArtworkSection() {
         <div
           ref={galleryTwoRef}
           className={`${styles.artworkContainer} ${
-            twoViewed
-              ? styles.showArtworkTwoContainer
+            twoInView
+              ? styles.showArtworkContainer
               : styles.hiddenArtworkContainer
           }`}
         >
@@ -68,8 +62,8 @@ export default function ArtworkSection() {
         <div
           ref={galleryThreeRef}
           className={`${styles.artworkContainer} ${
-            threeViewed
-              ? styles.showArtworkThreeContainer
+            threeInView
+              ? styles.showArtworkContainer
               : styles.hiddenArtworkContainer
           }`}
         >
@@ -86,80 +80,13 @@ export default function ArtworkSection() {
           </div>
         </div>
       </div>
-      <button>More</button>
+      <div className={styles.otherGalleries}>
+        <h3>Other Galleries</h3>
+        <ul>
+          <Link href="#">Commissions</Link>
+          <Link href="#">Photography</Link>
+        </ul>
+      </div>
     </section>
   );
-}
-
-//grid template option
-{
-  /*
-<div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-        <div className={styles.artworkContainer}>
-          <Image src={mock} alt="image" />
-          <div className={styles.info}>
-            <h2>Medium</h2>
-          </div>
-        </div>
-</div>
-</> */
 }

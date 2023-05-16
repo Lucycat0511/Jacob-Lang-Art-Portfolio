@@ -9,15 +9,15 @@ export default function Footer() {
       <footer className={styles.footer}>
         <Image src={signature} alt="Jacob's Signature" />
 
-        <nav className={styles.nav}>
-          <ul className={styles.footerLinks}>
-            <Link href="#">Artwork</Link>
-            <Link href="#">Commissions</Link>
-            <Link href="#">About</Link>
-          </ul>
-        </nav>
+        <div className={styles.links}>
+          <nav className={styles.nav}>
+            <ul className={styles.footerLinks}>
+              <Link href="#">Artwork</Link>
+              <Link href="#">Commissions</Link>
+              <Link href="#">About</Link>
+            </ul>
+          </nav>
 
-        <div className={styles.socialMedia}>
           <ul className={styles.footerLinks}>
             <Link href="#">Instagram</Link>
             <Link href="#">Facebook</Link>
